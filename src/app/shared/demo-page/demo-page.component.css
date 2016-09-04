@@ -1,0 +1,41 @@
+.content-page {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24em;
+}
+
+.content {
+    padding: .8em 1em 0;
+    border-radius: 3px;
+    
+}
+
+.header {
+  padding: 7px;
+  background-color: #fff;
+}
+
+.container {
+  flex: 1;
+  margin: auto;
+    border-radius: 3px;
+    background-color: #fff;
+    margin-bottom: 16px;
+    border: 1px solid rgba(0,0,0,.12)!important;
+    border-bottom: 1px solid rgba(0,0,0,.26)!important;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    -o-background-clip: padding-box;
+    -ms-background-clip: padding-box;
+    -khtml-background-clip: padding-box;
+    background-clip: padding-box;
+    padding: 7px;
+}
+
+.small {
+    max-width: 400px;
+}

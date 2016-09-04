@@ -9,10 +9,24 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'jquery': 'vendor/jquery/dist/jquery.min.js',
+  'bootstrap': 'vendor/bootstrap/dist/js/bootstrap.min.js',
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'jquery': {
+    format: 'global'
+  },
+  'bootstrap': {
+    format: 'global'
+  }
+};
+
+const meta: any = {
+  'bootstrap': {
+    deps: ['jquery']
+  }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,6 +50,12 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/shared/demo-page',
+  'app/shared/validated-input',
+  'app/login',
+  'app/signup',
+  'app/model-list',
+  'app/model-detail',
   /** @cli-barrel */
 ];
 
@@ -58,4 +78,4 @@ System.config({
 });
 
 // Apply the user's configuration.
-System.config({ map, packages });
+System.config({ map, meta, packages });

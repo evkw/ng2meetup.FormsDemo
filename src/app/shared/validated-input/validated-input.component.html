@@ -1,0 +1,9 @@
+<div class="form-group" [ngClass]="{'has-feedback': !control.pristine, 'has-success': isValid, 'has-error': control.dirty && !isValid }">
+    <ng-content></ng-content>
+    <span class="glyphicon form-control-feedback" [ngClass]="{'glyphicon-ok': isValid, 'glyphicon-remove': control.dirty && !isValid}"></span>
+    <div [hidden]="isValid || control.pristine" class="alert alert-danger">
+        <div *ngFor="let errMsg of errorMessages">
+            {{errMsg}}
+        </div>
+    </div>
+</div>

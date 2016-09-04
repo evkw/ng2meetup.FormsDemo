@@ -1,3 +1,24 @@
-<h1>
-  {{title}}
-</h1>
+<div class="bg-light-gray">
+  <nav class="navbar navbar-default main-nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a routerLink="login">Login Form</a></li>
+          <li><a routerLink="signup">Sign Up Form</a></li>
+          <li><a href=#>Form using an interface</a></li>
+          <li><a routerLink="models">Form populated from data source</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
