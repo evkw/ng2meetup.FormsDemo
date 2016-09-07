@@ -42,7 +42,6 @@ export class PasswordInputComponent implements ControlValueAccessor {
     }
 
     validate(c: FormControl) {
-        console.log(c);
         this._control = c;
         return this.validateFn(c);
     }

@@ -37,7 +37,6 @@ export class ModelDetailComponent {
 
     this.route.data.forEach(d => {
       this.person = d['person'];
-      console.log(this.person);
       this.personForm.patchValue(this.person);
     });
   }
