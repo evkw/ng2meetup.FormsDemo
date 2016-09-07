@@ -11,15 +11,16 @@
       <input type="email" formControlName="email" class="form-control" id="email" placeholder="Enter email" autocomplete="email">
     </validated-input>
 
-    <div class="form-group">
-      <label for="pwd">Password</label>
-      <input type="password" [formControl]="signUpForm.controls['passwords'].controls['pass']" class="form-control" id="pwd" placeholder="Enter password">
-      <password-validator [hidden]="!showPassHelp" [control]="signUpForm.controls['passwords'].controls['pass']"></password-validator>
-    </div>
+
+    <password-input [formControl]="signUpForm.controls['passwords'].controls['pass']"></password-input>
 
     <validated-input [control]="signUpForm.controls['passwords'].controls['passMatch']" [formGroup]="signUpForm.controls['passwords']">
       <label for="re-pwd">Repeat Password</label>
-      <input type="password" [formControl]="signUpForm.controls['passwords'].controls['passMatch']" class="form-control" id="re-pwd" placeholder="Enter password again">
+      <input type="password" [formControl]="signUpForm.controls['passwords'].controls['passMatch']" class="form-control" id="re-pwd"
+        placeholder="Enter password again">
     </validated-input>
   </form>
+
+  <h3>Form Value</h3> <br> {{signUpForm.value | json}}
+  <h3>Form Valid</h3> <br> {{signUpForm.valid}}
 </demo-page>

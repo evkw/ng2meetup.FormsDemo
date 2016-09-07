@@ -8,7 +8,7 @@ import { SharedModule } from './shared';
 import { AppComponent } from './app.component';
 import { appRoutingModule } from './app.routing';
 import { LoginComponent } from './login';
-import { SignupComponent, PasswordComponent } from './signup';
+import { SignupComponent } from './signup';
 import { ModelListComponent, PeopleService } from './model-list';
 import { ModelDetailComponent, PersonResolver } from './model-detail';
 
@@ -29,7 +29,6 @@ import { ModelDetailComponent, PersonResolver } from './model-detail';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    PasswordComponent,
     ModelListComponent,
     ModelDetailComponent
   ],

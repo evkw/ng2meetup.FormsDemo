@@ -15,10 +15,10 @@ export class PeopleService {
   }
 
   getPerson(id: number): Observable<PeopleModel> {
-      return this.http.get('./../../assets/people.json')
+    return this.http.get('./../../assets/people.json')
       .map(res => {
-          let people = <PeopleModel[]>res.json()
-          return people.find(item => item.id == id);
-        })
+        let people = <PeopleModel[]>res.json();
+        return people.find(item => item.id == id);
+      });
   }
 }

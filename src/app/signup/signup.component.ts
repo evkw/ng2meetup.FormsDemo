@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { CustomValidatorsService } from '../shared';
@@ -8,7 +8,7 @@ import { CustomValidatorsService } from '../shared';
   selector: 'app-signup',
   templateUrl: 'signup.component.html'
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
 
   public signUpForm: FormGroup;
   public showPassHelp: boolean = false;
@@ -20,7 +20,9 @@ export class SignupComponent implements OnInit {
     this.signUpForm = this.fb.group({
       name: ['', this.svc.required],
       email: ['', Validators.compose([this.svc.required, this.svc.validateEmail])],
-      passwords: fb.group({
+      passwords:
+
+      fb.group({
         pass: ['', Validators.compose(
           [Validators.required,
             Validators.minLength(8),
@@ -31,19 +33,5 @@ export class SignupComponent implements OnInit {
       }, { validator: Validators.compose([this.svc.validatePasswordsMatch, this.svc.passwordIsValid]) })
 
     });
-  }
-
-  ngOnInit() {
-    let passwordInput = document.getElementById('pwd');
-    passwordInput.onfocus = (() => this.showPassHelp = true);
-    passwordInput.onblur = (() => this.showPassHelp = false);
-  }
-
-  submitSignUp() {
-    if(this.signUpForm.valid) {
-      window.alert('Form is Valid!')
-    } else {
-      window.alert('Form isnt valid..')
-    }
   }
 }

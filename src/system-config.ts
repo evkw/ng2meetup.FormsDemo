@@ -52,6 +52,7 @@ const barrels: string[] = [
   'app/shared',
   'app/shared/demo-page',
   'app/shared/validated-input',
+  'app/shared/password-input',
   'app/login',
   'app/signup',
   'app/model-list',

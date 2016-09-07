@@ -1,5 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, forwardRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Http } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+
+import { PeopleModel } from './../../model-list';
 
 const requiredMessage = 'This field is required';
 const passwordMatchMessage = 'Passwords do not match';
@@ -12,14 +17,14 @@ export class CustomValidatorsService {
 
     private errorMessage: string[];
 
+    constructor(private http: Http) { }
+
     required(control: FormControl) {
         let regex = new RegExp('(^$)');
         return !regex.test(control.value) ? null : { 'required': true };
     }
 
     validatePasswordsMatch(group: FormGroup) {
-        console.log('pass' + group.controls['pass'].value);
-        console.log('passMatch' + group.controls['passMatch'].value);
         return group.controls['pass'].value === group.controls['passMatch'].value ? null : { 'passwordMatch': true };
     }
 
@@ -56,7 +61,22 @@ export class CustomValidatorsService {
         return regex.test(control.value) ? null : { 'validateEmail': true };
     }
 
+    validateEmailIsUnqiue(control: FormControl): Observable<{ [key: string]: any }> {
+        console.log(control);
+        let email = control.value;
+        console.log(email);
+        return this.http.get('./../../assets/people.json')
+            .map(res => {
+                let people = <PeopleModel[]>res.json().find;
+                let person = people.find(item => item.email === email);
 
+                if (person == null) {
+                    return Observable.from([null]);
+                } else {
+                    return Observable.from([{ 'emailUnique': true }]);
+                }
+            });
+    }
 
     buildErrorMessages(control: FormControl, formGroup: FormGroup) {
 
@@ -65,7 +85,6 @@ export class CustomValidatorsService {
         if (formGroup != null) {
             this.buildFormErrorMessages(formGroup);
         }
-        console.log(this.errorMessage);
         return this.errorMessage;
     }
 

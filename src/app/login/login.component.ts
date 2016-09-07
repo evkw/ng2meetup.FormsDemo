@@ -14,7 +14,7 @@ export class LoginComponent {
     this.loginForm = fb.group({
       email: [''],
       password: ['']
-    })
+    });
   }
 
   login() {
@@ -25,3 +25,8 @@ export class LoginComponent {
     this.loginForm.reset();
   }
 }
+
+
+
+
+

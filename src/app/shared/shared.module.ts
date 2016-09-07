@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { DemoPageComponent } from './demo-page';
 import { ValidatedInputComponent, CustomValidatorsService } from './validated-input';
+import { PasswordInputComponent } from './password-input';
 
 @NgModule({
-    imports: [CommonModule],
+    imports: [
+        CommonModule,
+        FormsModule
+    ],
     exports: [
         DemoPageComponent,
-        ValidatedInputComponent
+        ValidatedInputComponent,
+        PasswordInputComponent
     ],
     declarations: [
         DemoPageComponent,
-        ValidatedInputComponent
+        ValidatedInputComponent,
+        PasswordInputComponent
     ],
     providers: [
         CustomValidatorsService
