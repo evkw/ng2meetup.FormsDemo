@@ -1,0 +1,34 @@
+<demo-page title="Person Info" [containerSmall]="true">
+<form [formGroup]="personForm">
+  <validated-input [control]="personForm.controls['first_name']">
+    <label for="first_name" class="control-label">First Name</label>
+    <input type="text" formControlName="first_name" class="form-control" id="first_name">
+  </validated-input>
+
+  <validated-input [control]="personForm.controls['last_name']">
+    <label for="last_name" class="control-label">Last Name</label>
+    <input type="text" formControlName="last_name" class="form-control" id="last_name">
+  </validated-input>
+
+  <validated-input [control]="personForm.controls['email']">
+    <label for="email" class="control-label">Email</label>
+    <input type="text" formControlName="email" class="form-control" id="email">
+  </validated-input>
+
+  <validated-input [control]="personForm.controls['gender']">
+    <label for="gender" class="control-label">Gender</label>
+    <input type="text" formControlName="gender" class="form-control" id="gender">
+  </validated-input>
+
+  <validated-input [control]="personForm.controls['description']">
+    <label for="description" class="control-label">Description</label>
+    <textarea formControlName="description" class="form-control" id="description"></textarea>
+  </validated-input>
+</form>
+
+<h3>Form Value</h3> <br>
+{{personForm.value | json}}
+<hr>
+<h3>Model Value</h3> <br>
+{{person | json}}
+</demo-page>

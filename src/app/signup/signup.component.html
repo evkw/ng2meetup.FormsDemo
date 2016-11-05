@@ -1,0 +1,26 @@
+<demo-page title="Sign Up" [containerSmall]="true">
+  <form [formGroup]="signUpForm" (submit)="submitSignUp()">
+
+    <validated-input [control]="signUpForm.controls['name']">
+      <label for="name" class="control-label">Name</label>
+      <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter name" autocomplete="given-name">
+    </validated-input>
+
+    <validated-input [control]="signUpForm.controls['email']">
+      <label for="email" class="control-label">Email</label>
+      <input type="email" formControlName="email" class="form-control" id="email" placeholder="Enter email" autocomplete="email">
+    </validated-input>
+
+
+    <password-input [formControl]="signUpForm.controls['passwords'].controls['pass']"></password-input>
+
+    <validated-input [control]="signUpForm.controls['passwords'].controls['passMatch']" [formGroup]="signUpForm.controls['passwords']">
+      <label for="re-pwd">Repeat Password</label>
+      <input type="password" [formControl]="signUpForm.controls['passwords'].controls['passMatch']" class="form-control" id="re-pwd"
+        placeholder="Enter password again">
+    </validated-input>
+  </form>
+
+  <h3>Form Value</h3> <br> {{signUpForm.value | json}}
+  <h3>Form Valid</h3> <br> {{signUpForm.valid}}
+</demo-page>
